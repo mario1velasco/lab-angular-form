@@ -10,9 +10,8 @@ import { User } from './../../../shared/models/user.model';
 export class UserFormComponent {
   user: User = new User();
 
-  // onSubmitUserForm(user){
-  //   this.user=user;
-  //   console.log(this.user);
-    
-  // }
+  onSubmitUserForm(userF){
+    // this.user=user;
+    console.log(this.user);
+  }
 }
