@@ -1,6 +1,6 @@
 import {  Component} from '@angular/core';
 import { User } from './../../../shared/models/user.model';
-
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -11,7 +11,9 @@ export class UserFormComponent {
   user: User = new User();
   users: Array<User>=[];
 
-  onSubmitUserForm(userF){
+  onSubmitUserForm(userForm:NgForm){
     this.users.push(this.user);
+    this.user=new User();
+    userForm.reset();
   }
 }
