@@ -38,6 +38,8 @@
   <button type="submit" [disabled]="!userForm.valid">Create User</button>
 </form>
 
-
-
-<app-user-item [user]=user></app-user-item>
+<ul>
+    <li *ngFor="let user of users">
+      <app-user-item [user]="user"></app-user-item>
+    </li>
+  </ul>
