@@ -38,14 +38,6 @@
   <button type="submit" [disabled]="!userForm.valid">Create User</button>
 </form>
 
-<ul>
-  <li>
-    <p>{{user.name}}</p>
-    <p>{{user.password}}</p>
-    <p>{{user.email}}</p>
-    <p>{{user.birthday}}</p>
-    <p>{{user.avatar}}</p>
-  </li>
-</ul>
 
-<app-user-item></app-user-item>
+
+<app-user-item [user]=user></app-user-item>
