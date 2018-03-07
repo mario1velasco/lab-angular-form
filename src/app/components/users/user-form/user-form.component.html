@@ -10,22 +10,30 @@
 
   <div>
     <label for="">Password</label>
-    <input type="text" name="password" [(ngModel)]="user.password">
+    <input type="text" name="password" [(ngModel)]="user.password" #password="ngModel" required pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{6})$">
+    <ul *ngIf="password.errors && password.touched">
+      <li *ngIf="password.errors.required">Password is required</li>
+      <li *ngIf="password.errors.pattern">6 Char, 1 Number, 1 lower, 1 UPPER</li>
+    </ul>
   </div>
 
   <div>
     <label for="">Email</label>
-    <input type="text" name="email" [(ngModel)]="user.email">
+    <input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
+    <ul *ngIf="email.errors && email.touched">
+      <li *ngIf="email.errors.required">Email is required</li>
+      <li *ngIf="email.errors.pattern">Email not valid aaaa@aaa.com</li>
+    </ul>
   </div>
 
   <div>
     <label for="">Birthday</label>
-    <input type="text" name="birthday" [(ngModel)]="user.birthday">
+    <input type="date" name="birthday" [(ngModel)]="user.birthday" #birthday="ngModel">
   </div>
 
   <div>
     <label for="">Avatar</label>
-    <input type="text" name="avatar" [(ngModel)]="user.avatar">
+    <input type="text" name="avatar" [(ngModel)]="user.avatar" #avatar="ngModel">
   </div>
-  <button type="submit">Create User</button>
+  <button type="submit" [disabled]="!userForm.valid">Create User</button>
 </form>
