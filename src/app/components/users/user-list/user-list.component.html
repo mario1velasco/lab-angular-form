@@ -1,7 +1,12 @@
 <app-user-form (onCreate)="onCreateUser($event)"></app-user-form>
 
-<div *ngFor="let user of users">
-    <app-user-item [user]="user" (onDelete)="onDeleteUser($event)"></app-user-item>
-    <br>
-    <br>
+<div>
+  <label for="">Search a User:</label>
+  <input [(ngModel)]="searchUser" (keyup)="newSearch()">
+</div>
+
+<div *ngFor="let user of usersSearch">
+  <app-user-item [user]="user" (onDelete)="onDeleteUser($event)"></app-user-item>
+  <br>
+  <br>
 </div>

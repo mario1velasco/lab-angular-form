@@ -10,9 +10,6 @@ export class UserItemComponent {
   @Input() user: User = new User();
   @Output() onDelete: EventEmitter<User> = new EventEmitter<User>();
   onDeleteUser(container){
-    console.log(container);
-    
-    console.log(this.user);
     this.onDelete.emit(this.user);
   }
 }
