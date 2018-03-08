@@ -1,17 +1,14 @@
-<p>
-  user-item Begin!
-</p>
-
-<ul>
-  <li>
-    <p>{{user.name}}</p>
-    <p>{{user.password}}</p>
-    <p>{{user.email}}</p>
-    <p>{{user.birthday}}</p>
-    <p>{{user.avatar}}</p>
-  </li>
-</ul>
-
-<p>
-  user-item End!
-</p>
+<div class="container" #container>
+  <div>
+    <img src="https://picsum.photos/200/200/?random" alt="">
+    <!-- <img src="{{user.avatar}}" alt=""> -->
+  </div>
+  <div>
+    <p><strong>Name:</strong> {{user.name}}</p>
+    <p><strong>Email:</strong> {{user.email}}</p>
+    <p><strong>Birthday:</strong> {{user.birthday}}</p>
+  </div>
+  <div class="btn" (click)="onDeleteUser(container)"(click)="container.innerHTML = ''">
+    <a >X</a>
+  </div>
+</div>

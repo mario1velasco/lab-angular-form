@@ -1,4 +1,4 @@
-import {  Component} from '@angular/core';
+import {  Component, Output, EventEmitter} from '@angular/core';
 import { User } from './../../../shared/models/user.model';
 import { NgForm } from '@angular/forms';
 
@@ -9,10 +9,12 @@ import { NgForm } from '@angular/forms';
 })
 export class UserFormComponent {
   user: User = new User();
-  users: Array<User>=[];
+  // users: Array<User>=[];
+  @Output() onCreate: EventEmitter<User> = new EventEmitter<User>();
 
   onSubmitUserForm(userForm:NgForm){
-    this.users.push(this.user);
+    // this.users.push(this.user);
+    this.onCreate.emit(this.user);
     this.user=new User();
     userForm.reset();
   }

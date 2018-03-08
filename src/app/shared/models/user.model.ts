@@ -4,4 +4,5 @@ export class User {
   password:string;
   birthday:string;
   avatar:string;
+  index:number;
 }
